@@ -1,0 +1,52 @@
+
+
+## GIT COMMANDS
+
+## Setup your name and email using below command
+git config --global user.email "yourname@mail"
+git config --global user.name "yourname"
+
+## Initialize an empty git repo in local
+git init
+
+## Clone a remote repository
+git clone <url>
+
+## Create a branch
+git checkout -b <branch_name>
+
+## To go inside a branch
+git checkout <branch_name>
+
+## List all the branches
+git branch -a
+
+## Check current branch
+git branch
+
+## Check the status of your files
+git status
+
+## Add a file, so it is committed for a push
+git add <filename>
+
+## Merge one branch from another using git
+git merge <branch_name>
+
+## View git logs
+git log
+
+## Save modified files into your local system
+git stash
+
+## Unsaved modified files from your local system
+git unstash
+
+## Commit a file to a github repo
+git commit -m "your_message"
+
+## Push a file to github
+git push
+
+## Push a file to a particular repo
+git push -u origin <branch_name>
