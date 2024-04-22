@@ -1,0 +1,73 @@
+## DOCKER COMMANDS
+
+
+## Pull a docker images
+docker pull <image_name:tag_name>
+
+
+## To see all images
+docker images
+
+
+## Run a container from an image in detached (background) mode
+docker run -dit <image_name:tag_name>
+
+
+## To see running container
+docker ps
+
+
+## To see all containers including background containers
+docker ps -a
+
+
+## Enter into the container
+docker exec -it <container_id> <shell_command>
+
+
+## Stop a container
+docker stop <container_id>
+
+
+## Start a container which is in stopped state
+docker start <containert_id>
+
+
+## Remove a container
+docker rm <container_id>
+
+
+## Remove a container forcefully without stopping it
+docker rm -f <container_id>
+
+
+## View information about a container
+docker inspect <container_id>
+
+
+## See logs of a container
+docker logs -f <container_id>
+
+
+## Create image from a container
+docker commit <container_id> <new_image_name:tag>
+
+
+## Export docker image to a tarball
+docker save -o <output_file.tar> <image_name:tag>
+
+
+## Load image from a tarball
+docker load -i <input_file.tar>
+
+
+## Login to docker hub
+docker login
+
+
+## Docker tag command
+docker tag <source_image:tag> <destination_image:tag>
+
+
+## Push image to docker hub
+docker push <image_name:tag>
