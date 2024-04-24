@@ -60,6 +60,17 @@ docker save -o <output_file.tar> <image_name:tag>
 ## Load image from a tarball
 docker load -i <input_file.tar>
 
+## Build new image from a existing image using Dockerfile 
+
+Dockerfile - 
+FROM ubuntu:latest
+WORKDIR /app
+RUN apt update -y
+RUN apt install htop -y
+RUN echo "this is my file" > myfile
+
+docker build -t <name_image:tag> .
+
 
 ## Login to docker hub
 docker login
