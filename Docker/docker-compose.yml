@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  nginx_srv:
+    image: 'nginx:latest'
+  redis_srv:
+    image: 'redis:latest'
+  ubuntu_srv:
+    image: 'ubuntu:latest'
+    command: tail -f /dev/null
