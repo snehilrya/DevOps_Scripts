@@ -1,0 +1,216 @@
+Devops Topics being covered while learning
+
+Cloud (Basics)
+Linux
+Git & Github
+Ansible
+Docker
+Docker Swarm
+Kubernetes
+Jenkins
+Shell Scripting
+Terraform
+
+Linux - 
+
+echo "2nd File" > FileName
+
+chmod 777 file name
+
+read- 4
+write- 2
+execute- 1
+
+User, group and others
+
+chown User:Group FileName
+
+rm -rf * = Remove everything
+
+yum install = install 
+yum remove = remove installed
+
+
+Git & GitHub -
+
+Git : Git is a tool which helps to connect to github.
+
+Github Passtoken : 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
+
+git config
+git add -A
+git commit -m "Pass a message"
+git push origin <branch namer>
+git pull.rebase false
+git checkout -m <branch name> : To create a new branch
+git checkout <branch name> : To switch to branch
+git merge 
+
+pull request and merge request : for merging branch files
+
+
+
+Hypervisor
+
+Docker & DockerHub - 
+
+IMAGE : As in OS
+Container : 
+
+Steps : 
+
+1. Download the image /pull the image : docker pull <image name>
+
+2. Create a container/Run a container : docker run #-dit# <image name>
+*dit- Daemon Interactive terminal
+
+3. Go inside the container : docker exec -it <container name> bash
+
+4. Install/Execute commands
+
+5. Stop container : docker stop <container name> 
+
+
+Commands 
+
+ sudo yum install docker
+ sudo systemctl status docker
+ sudo systemctl start docker
+ sudo systemctl status docker
+ sudo docker pull <image_name>
+ sudo docker images
+ sudo docker ps
+ sudo docker run <image_name>
+ sudo docker ps
+ sudo docker ps -a
+ sudo docker run -dit <image_name>
+ sudo docker ps
+ sudo docker history <image_name>
+ sudo docker ps
+ sudo docker exec -it <container_name> sh
+ sudo docker ps
+ sudo docker stop <container_name>
+ sudo docker ps
+
+Day 2 
+
+ docker ps
+    2  docker ps -a
+    3  systemctl status docker.service
+    4  sudo systemctl status docker
+    5  sudo systemctl start docker
+    6  sudo systemctl status docker
+    7  clear
+    8  sudo yum update -y
+    9  sudo newgrp docker
+   10  sudo usermod -aG ec2-user:ec2-user doccker
+   11  vim docker.sh
+   12  chmod 700 docker.sh
+   13  ./docker.sh
+   14  clear
+   15  docker images
+   16  dcoker pull alpine:20240315
+   17  docker pull alpine:20240315
+   18  docker images
+   19  dcoker run -dit alpine:20240315
+   20  docker run -dit alpine:20240315
+   21  docker ps
+   22  docker ps -a
+   23  docker run -dit --name=snehil alpine:20240315
+   24  docker ps
+   25  docker stop snehil
+   26  pocker ps -a
+   27  docker ps -a
+   28  docker rm snehil
+   29  docker ps -a
+   30  docker run -dit --name=snehil alpine:20240315
+   31  docker rm -f snehil
+   32  docker ps -a
+   33  docker run -dit --name=snehil alpine:20240315
+   34  docker rm -f snehil stoic_greider
+   35  docker ps -a
+   36  docker images
+
+
+
+
+Dockerfile - Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. This page describes the commands you can use in a Dockerfile.
+
+
+Instruction	Description
+ADD	        Add local or remote files and directories.
+ARG	        Use build-time variables.
+CMD	        Specify default commands.
+COPY	        Copy files and directories.
+ENTRYPOINT	Specify default executable.
+ENV	        Set environment variables.
+EXPOSE	        Describe which ports your application is listening on.
+FROM	        Create a new build stage from a base image.
+HEALTHCHECK	Check a container's health on startup.
+LABEL	        Add metadata to an image.
+MAINTAINER	Specify the author of an image.
+ONBUILD	        Specify instructions for when the image is used in a build.
+RUN	        Execute build commands.
+SHELL	        Set the default shell of an image.
+STOPSIGNAL	Specify the system call signal for exiting a container.
+USER	        Set user and group ID.
+VOLUME	        Create volume mounts.
+WORKDIR	        Change working directory.
+
+
+
+
+YAML - 
+
+Works on key value pair.
+there should be a unique key and it can have one or more values.
+YAML/YML is primarily used as defacto language for infrastructure automation.
+YAML files can interchange work with JSON & XML files.
+
+
+Docker Compose
+
+docker-compose up -d
+docker-compose down
+docker-compose restart
+
+
+File.yml
+
+version: '3.8'
+services:
+  nginx_srv:
+    image: 'nginx:latest'
+  redis_srv:
+    image: 'redis:latest'
+  ubuntu_srv:
+    image: 'ubuntu:latest'
+    command: tail -f /dev/null
+
+
+volume mount:
+
+docker run -v /home/ec2-user/ec2-mount:/snehil -dit image_name:tag
+docker exec -it container_id sh
+
+Find your folder cretaed at the time of running container and create a file inside that folder.
+then come out of the container and try to find the file inside the folder ec2-mount in current directory.
+
+Docker Network:
+
+1. bridge network: connectivity bw anontainers on same machine
+2. host network: connectivity bw container and machine(host)
+3. Null/None: No network connectivity from outside world
+4. macvlan: connecct to mac address of a system
+5. overlay: connect bw different containers in different machine(host)
+
+
+docker network ls: to see docker network
+
+docker network create -d bridge snehil / --driver=bridge snehil
+
+docker run -dit --network=snehil ubuntu:latest
+
+docker rm -f $(docker ps -qa)
+
+docker run -dit -v $(pwd):/snehil --network=snehil -p 80:8080 ubuntu:latest
