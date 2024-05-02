@@ -214,3 +214,10 @@ docker run -dit --network=snehil ubuntu:latest
 docker rm -f $(docker ps -qa)
 
 docker run -dit -v $(pwd):/snehil --network=snehil -p 80:8080 ubuntu:latest
+
+
+tail -f /dev/null = 
+
+docker-compose -f sample.yml up -dcoker
+
+Dcoker swarm: Group of docker container
