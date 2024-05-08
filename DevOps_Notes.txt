@@ -220,4 +220,53 @@ tail -f /dev/null =
 
 docker-compose -f sample.yml up -dcoker
 
-Dcoker swarm: Group of docker container
+Docker swarm: Group of docker container
+
+port 2377 works from master node to worker nodes. security group of all server.
+
+docker swarm init --advertise-addr <masters-ip> : run on master node
+docker swarm join <token id> : run on worker node
+docker node ls : to check master and worker node id
+docker node rm <node-id> -f : to forecefully remove node.
+
+
+
+
+* docker stack restart = search it on ourself
+
+
+
+Anisble :
+
+Ansible is an automation tool used for configuration management on OS level on multiple hosts.
+
+Inventory: List of hosts on which ansible performs tasks
+modules: List of commands 
+CMDB: Central Database
+Ansible Playbook: 
+
+
+sftp -i 'keypair.pem' ec2-user@ip-addr : to send key pair
+put keypair.pem 
+:to login to another instance with same keypair
+
+sudo yum install ansible -y
+vi inventory : create inventory
+ansible --version
+ansible -i <inventory-file> all -m ping --key-file <key-file.pem>
+ansible -i <inventory-file> all -m shell -a <ur command> --key-file <key-file.pem>
+
+adding worker and master ip address in inventory file and run above commands
+
+
+
+
+
+systemctl start nginx / service nginx restart
+
+
+become = true : root privilege
+
+handler:  dependencies upon the previous tasks
+
+
